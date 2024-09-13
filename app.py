@@ -17,7 +17,7 @@ async def lifespan(app):
     yield
 
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 
 @serve.deployment(name="opt-125m")
