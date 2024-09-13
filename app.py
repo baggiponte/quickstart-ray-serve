@@ -31,8 +31,11 @@ class Deployment:
     def complete(self, prompt: str, request: Request):
         pipeline = request.app.state["pipeline"]
 
-        completion = pipeline(prompt)
+        result = pipeline(prompt)
+
+        completion = result[0]["generated_text"]
+
         return {"completion": completion}
 
 
-service = Deployment.bind()
+opt125 = Deployment.bind()
