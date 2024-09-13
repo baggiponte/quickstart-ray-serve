@@ -29,7 +29,9 @@ class Deployment:
 
     @app.get("/complete")
     def complete(self, prompt: str, request: Request):
-        completion = request.app.state.pipeline(prompt)
+        pipeline = request.app.state["pipeline"]
+
+        completion = pipeline(prompt)
         return {"completion": completion}
 
 
