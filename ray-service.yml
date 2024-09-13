@@ -18,11 +18,12 @@ spec:
     applications:
     - name: chatter
       route_prefix: /
-      import_path: app:service
+      import_path: app:opt125
       runtime_env:
         working_dir: "https://github.com/baggiponte/quickstart-ray-serve/archive/refs/heads/main.zip"
         pip:
         - transformers
+        - torch
   rayClusterConfig:
     rayVersion: 2.35.0
     headGroupSpec:
